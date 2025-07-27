@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "Check if existing issues already exist"
+    url: https://github.com/zSemper/Tasks-MCreator-Plugin/issues
+    about: The place for issues
+  - name: "Fluid Control's forum page"
+    url: about:blank
+    about: Alternative place to report bugs or feature requests, also place for support questions

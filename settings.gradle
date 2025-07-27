@@ -1,0 +1,4 @@
+rootProject.name = 'ArrayLists'
+
+include ":MCreator"
+project(":MCreator").projectDir = file(mcreator_path)
