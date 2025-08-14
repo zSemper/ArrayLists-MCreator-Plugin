@@ -1,3 +1,3 @@
 (
-    ${input$var}.stream().map(Object::toString).collect(Collectors.joining(${input$separator}))
+    ${input$var}.stream().map(String::valueOf).collect(Collectors.joining(${input$separator}))
 )
