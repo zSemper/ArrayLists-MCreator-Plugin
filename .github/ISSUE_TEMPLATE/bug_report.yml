@@ -36,6 +36,8 @@ body:
       description: Which mcreator version did you use?
       options:
         - MCreator 2024.4
+        - MCreator 2025.1
+        - MCreator 2025.2
     validations:
       required: true
   - type: textarea
