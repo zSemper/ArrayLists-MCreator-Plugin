@@ -29,6 +29,7 @@ body:
         - 1.20.1 Forge
         - 1.21.1 NeoForge
         - 1.21.4 NeoForge
+        - Other (specify in additional information)
     validations:
       required: true
   - type: dropdown
@@ -39,6 +40,7 @@ body:
         - MCreator 2024.4
         - MCreator 2025.1
         - MCreator 2025.2
+        - Other (specify in additional information)
     validations:
       required: true
   - type: textarea

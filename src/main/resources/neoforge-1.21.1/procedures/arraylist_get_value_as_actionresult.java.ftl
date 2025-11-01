@@ -1,10 +1,10 @@
 (
     new Object() {
-        public Direction get(ArrayList<?> list, int index) {
+        public InteractionResult get(ArrayList<?> list, int index) {
             if (list.get(index) instanceof InteractionResult action) {
                 return action;
             }
-            return Direction.UP;
+            return InteractionResult.FAIL;
         }
     }.get(${input$var}, ${opt.toInt(input$index)})
 )
