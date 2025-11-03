@@ -16,6 +16,7 @@
   "nextStatement": null,
   "colour": "#a55ba5",
   "mcreator": {
+    "group": "l01",
     "toolbox_id": "arraylist_lists",
     "inputs": [
       "value",

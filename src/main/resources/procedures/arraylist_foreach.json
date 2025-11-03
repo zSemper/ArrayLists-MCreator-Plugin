@@ -8,7 +8,7 @@
     {
       "type": "input_value",
       "name": "iterator",
-      "check": "ArrayList"
+      "check": "ArrayListEntry"
     },
     {
       "type": "input_statement",
@@ -23,7 +23,8 @@
   "nextStatement": null,
   "colour": "#a55ba5",
   "mcreator": {
-    "toolbox_id": "arraylist_utils",
+    "group": "i00",
+    "toolbox_id": "arraylist_iterations",
     "toolbox_init": [
       "<value name=\"iterator\"><block deletable=\"false\" movable=\"false\" enabled=\"false\" type=\"arraylist_iterator\"></block></value>"
     ],

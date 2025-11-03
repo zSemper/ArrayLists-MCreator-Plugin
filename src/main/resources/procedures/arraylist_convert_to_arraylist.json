@@ -15,6 +15,7 @@
   "output": "ArrayList",
   "colour": "#a55ba5",
   "mcreator": {
+    "group": "u05",
     "toolbox_id": "arraylist_utils",
     "toolbox_init": [
       "<value name=\"separator\"><block type=\"text\"><field name=\"TEXT\">,</field></block></value>"

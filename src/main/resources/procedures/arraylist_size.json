@@ -10,6 +10,7 @@
   "output": "Number",
   "colour": "#5b67a5",
   "mcreator": {
+    "group": "u01",
     "toolbox_id": "arraylist_utils",
     "inputs": [
       "var"

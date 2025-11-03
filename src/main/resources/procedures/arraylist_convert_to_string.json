@@ -15,6 +15,7 @@
   "output": "String",
   "colour": "#5ba58c",
   "mcreator": {
+    "group": "u06",
     "toolbox_id": "arraylist_utils",
     "toolbox_init": [
       "<value name=\"separator\"><block type=\"text\"><field name=\"TEXT\">,</field></block></value>"

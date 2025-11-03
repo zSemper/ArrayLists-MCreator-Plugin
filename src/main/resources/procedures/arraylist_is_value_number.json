@@ -2,7 +2,7 @@
   "args0": [
     {
       "type": "input_value",
-      "name": "var",
+      "name": "list",
       "check": "ArrayList"
     },
     {
@@ -15,13 +15,14 @@
   "output": "Boolean",
   "colour": "#5b67a5",
   "mcreator": {
+    "group": "u13",
     "toolbox_id": "arraylist_utils",
     "toolbox_init": [
       "<value name=\"index\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value>"
     ],
     "inputs": [
       "index",
-      "var"
+      "list"
     ]
   }
 }

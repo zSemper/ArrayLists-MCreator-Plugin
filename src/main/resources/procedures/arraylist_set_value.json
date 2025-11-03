@@ -20,6 +20,7 @@
   "nextStatement": null,
   "colour": "#a55ba5",
   "mcreator": {
+    "group": "l02",
     "toolbox_id": "arraylist_lists",
     "toolbox_init": [
       "<value name=\"index\"><block type=\"math_number\"><field name=\"NUM\">1</field></block></value>"

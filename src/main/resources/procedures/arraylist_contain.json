@@ -14,6 +14,7 @@
   "output": "Boolean",
   "colour": "#5b80a5",
   "mcreator": {
+    "group": "u02",
     "toolbox_id": "arraylist_utils",
     "inputs": [
       "value",
