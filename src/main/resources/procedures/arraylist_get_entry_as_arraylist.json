@@ -10,7 +10,7 @@
   "output": "ArrayList",
   "colour": "#a55ba5",
   "mcreator": {
-    "group": "i10",
+    "group": "i11",
     "toolbox_id": "arraylist_iterations",
     "inputs": [
       "entry"

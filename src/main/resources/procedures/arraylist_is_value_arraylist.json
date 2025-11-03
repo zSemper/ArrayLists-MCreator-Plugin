@@ -15,7 +15,7 @@
   "output": "Boolean",
   "colour": "#a55ba5",
   "mcreator": {
-    "group": "u15",
+    "group": "u16",
     "toolbox_id": "arraylist_utils",
     "toolbox_init": [
       "<value name=\"index\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value>"

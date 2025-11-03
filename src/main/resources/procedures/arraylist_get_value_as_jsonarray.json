@@ -15,7 +15,7 @@
   "output": "JsonArray",
   "colour": "#6d175a",
   "mcreator": {
-    "group": "l18",
+    "group": "l19",
     "toolbox_id": "arraylist_lists",
     "toolbox_init": [
       "<value name=\"index\"><block type=\"math_number\"><field name=\"NUM\">0</field></block></value>"

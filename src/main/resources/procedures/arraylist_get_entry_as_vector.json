@@ -7,10 +7,10 @@
     }
   ],
   "inputsInline": true,
-  "output": "File",
-  "colour": "#805ba5",
+  "output": "Vector",
+  "colour": "#7d5ba5",
   "mcreator": {
-    "group": "i12",
+    "group": "i10",
     "toolbox_id": "arraylist_iterations",
     "inputs": [
       "entry"
