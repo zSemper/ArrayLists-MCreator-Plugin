@@ -1,10 +1,3 @@
 (
-    new Object() {
-        public com.google.gson.JsonArray get(Object entry) {
-            if (entry instanceof com.google.gson.JsonArray jsAr) {
-                return jsAr;
-            }
-            return new com.google.gson.JsonArray();
-        }
-    }.get(${input$entry})
+    ${input$entry} instanceof com.google.gson.JsonArray _jsAr${cbi} ? _jsAr${cbi} : new com.google.gson.JsonArray()
 )

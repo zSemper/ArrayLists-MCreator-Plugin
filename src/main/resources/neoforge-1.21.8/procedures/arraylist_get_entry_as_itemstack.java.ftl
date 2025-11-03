@@ -1,12 +1,5 @@
 /*@ItemStack*/
 
 (
-    new Object() {
-        public ItemStack get(Object entry) {
-            if (entry instanceof ItemStack stack) {
-                return stack;
-            }
-            return ItemStack.EMPTY;
-        }
-    }.get(${input$entry})
+    ${input$entry} instanceof ItemStack _stack${cbi} ? _stack${cbi} : ItemStack.EMPTY
 )

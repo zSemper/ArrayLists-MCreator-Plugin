@@ -1,12 +1,5 @@
 /*@BlockState*/
 
 (
-    new Object() {
-        public BlockState get(ArrayList<?> list, int index) {
-            if (list.get(index) instanceof BlockState state) {
-                return state;
-            }
-            return Blocks.AIR.defaultBlockState();
-        }
-    }.get(${input$var}, ${opt.toInt(input$index)})
+    ${input$var}.get(${opt.toInt(input$index)}) instanceof BlockState _state${cbi} : _state${cbi} ? Blocks.AIR.defaultBlockState()
 )

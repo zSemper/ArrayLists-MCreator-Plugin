@@ -1,10 +1,3 @@
 (
-    new Object() {
-        public Entity get(ArrayList<?> list, int index) {
-            if (list.get(index) instanceof Entity ent) {
-                return ent;
-            }
-            return null;
-        }
-    }.get(${input$var}, ${opt.toInt(input$index)})
+    ${input$var}.get(${opt.toInt(input$index)}) instanceof Entity _entity${cbi} : _entity${cbi} ? null
 )

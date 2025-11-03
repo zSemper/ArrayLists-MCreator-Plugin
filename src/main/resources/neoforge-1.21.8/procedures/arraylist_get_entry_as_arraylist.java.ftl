@@ -1,10 +1,3 @@
 (
-    new Object() {
-        public ArrayList<?> get(Object entry) {
-            if (entry instanceof ArrayList<?> list) {
-                return list;
-            }
-            return new ArrayList<>();
-        }
-    }.get(${input$entry})
+    ${input$entry} instanceof ArrayList<?> _array${cbi} ? _array${cbi} : new ArrayList<>()
 )

@@ -1,10 +1,3 @@
 (
-    new Object() {
-        public String get(ArrayList<?> list, int index) {
-            if (list.get(index) instanceof String text) {
-                return text;
-            }
-            return "";
-        }
-    }.get(${input$var}, ${opt.toInt(input$index)})
+    ${input$var}.get(${opt.toInt(input$index)}) instanceof String _str${cbi} : _str${cbi} ? ""
 )

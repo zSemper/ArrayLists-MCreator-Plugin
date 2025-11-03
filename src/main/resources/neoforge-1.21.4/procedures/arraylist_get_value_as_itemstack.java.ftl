@@ -1,12 +1,5 @@
 /*@ItemStack*/
 
 (
-    new Object() {
-        public ItemStack get(ArrayList<?> list, int index) {
-            if (list.get(index) instanceof ItemStack stack) {
-                return stack;
-            }
-            return ItemStack.EMPTY;
-        }
-    }.get(${input$var}, ${opt.toInt(input$index)})
+    ${input$var}.get(${opt.toInt(input$index)}) instanceof ItemStack _stack${cbi} : _stack${cbi} ? ItemStack.EMPTY
 )
