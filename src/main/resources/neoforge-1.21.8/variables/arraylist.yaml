@@ -12,9 +12,12 @@ scopes:
     init: public ArrayList<Object> ${var.getName()} = ${var.getValue()};
     read: |
       {
-        ListTag ${var.getName()}_list = nbt.getList("${var.getName()}", Tag.TAG_STRING);
-        for(int i = 0; i < ${var.getName()}_list.size(); i++) {
-          ${var.getName()}.add(${var.getName()}_list.getString(i));
+        ${var.getName()}.clear();
+        Optional<ListTag> ${var.getName()}_list = nbt.getList("${var.getName()}");
+        if (${var.getName()}_list.isPresent()) {
+          for (int i = 0; i < ${var.getName()}_list.get().size(); i++) {
+            if (${var.getName()}_list.get().getString(i).isPresent()) ${var.getName()}.add(${var.getName()}_list.get().getString(i).get());
+          }
         }
       }
     write: |
@@ -33,9 +36,12 @@ scopes:
     init: public ArrayList<Object> ${var.getName()} = ${var.getValue()};
     read: |
       {
-        ListTag ${var.getName()}_list = nbt.getList("${var.getName()}", Tag.TAG_STRING);
-        for(int i = 0; i < ${var.getName()}_list.size(); i++) {
-          ${var.getName()}.add(${var.getName()}_list.getString(i));
+        ${var.getName()}.clear();
+        Optional<ListTag> ${var.getName()}_list = nbt.getList("${var.getName()}");
+        if (${var.getName()}_list.isPresent()) {
+          for (int i = 0; i < ${var.getName()}_list.get().size(); i++) {
+            if (${var.getName()}_list.get().getString(i).isPresent()) ${var.getName()}.add(${var.getName()}_list.get().getString(i).get());
+          }
         }
       }
     write: |
