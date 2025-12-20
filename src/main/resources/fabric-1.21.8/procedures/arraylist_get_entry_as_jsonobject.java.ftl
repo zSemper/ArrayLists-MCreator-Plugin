@@ -1,0 +1,3 @@
+(
+    ${input$entry} instanceof com.google.gson.JsonObject _jsObj${cbi} ? _jsObj${cbi} : new com.google.gson.JsonObject()
+)

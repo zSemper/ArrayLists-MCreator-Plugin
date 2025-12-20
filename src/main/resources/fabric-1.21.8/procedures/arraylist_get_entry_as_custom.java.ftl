@@ -1,0 +1,3 @@
+(
+    ${input$entry} instanceof ${field$object} _obj${cbi} ? _obj${cbi} : ${field$default}
+)

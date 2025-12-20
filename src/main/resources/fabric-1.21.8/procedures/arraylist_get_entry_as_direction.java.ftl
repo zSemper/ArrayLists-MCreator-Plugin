@@ -1,0 +1,3 @@
+(
+    ${input$entry} instanceof Direction _direction${cbi} ? _direction${cbi} : Direction.UP
+)

@@ -1,0 +1,3 @@
+(
+    ${input$entry} instanceof InteractionResult _action${cbi} ? _action${cbi} : InteractionResult.FAIL
+)

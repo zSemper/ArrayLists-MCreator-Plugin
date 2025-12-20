@@ -1,0 +1,3 @@
+(
+    ${input$var}.get(${opt.toInt(input$index)}) instanceof com.google.gson.JsonObject _jsObj${cbi} ? _jsObj${cbi} : new com.google.gson.JsonObject()
+)
