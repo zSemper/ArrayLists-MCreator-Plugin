@@ -1,0 +1,3 @@
+(
+    ${input$entry} instanceof String _str${cbi} ? _str${cbi} : ""
+)
