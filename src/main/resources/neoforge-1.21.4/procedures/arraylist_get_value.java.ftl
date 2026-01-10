@@ -1,3 +1,1 @@
-(
-    ${input$var}.get(${opt.toInt(input$index)})
-)
+${input$var}.get(${opt.toInt(input$index)})

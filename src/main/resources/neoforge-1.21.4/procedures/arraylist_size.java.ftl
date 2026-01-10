@@ -1,3 +1,1 @@
-(
-    ${input$var}.size()
-)
+${input$var}.size()

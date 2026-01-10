@@ -11,20 +11,62 @@ scopes:
   global_world:
     init: public ArrayList<Object> ${var.getName()} = ${var.getValue()};
     read: |
-      {
-        ListTag ${var.getName()}_list = nbt.getList("${var.getName()}", Tag.TAG_STRING);
-        for(int i = 0; i < ${var.getName()}_list.size(); i++) {
-          ${var.getName()}.add(${var.getName()}_list.getString(i));
-        }
+      ${var.getName()}.clear();
+      
+      ListTag ${var.getName()}_list = nbt.getList("${var.getName()}", Tag.TAG_COMPOUND);
+      for (Tag tag : ${var.getName()}_list) {
+        CompoundTag entry = (CompoundTag) tag;
+        String type = entry.getString("Type");
+      
+        Object value = switch(type) {
+          case "BlockState" -> NbtUtils.readBlockState(lookupProvider.lookupOrThrow(Registries.BLOCK), entry.getCompound("Value"));
+          case "Direction" -> Direction.from3DDataValue(entry.getInt("Value"));
+          case "ItemStack" -> ItemStack.parseOptional(lookupProvider, entry.getCompound("Value"));
+          case "Boolean" -> entry.getBoolean("Value");
+          case "Double" -> entry.getDouble("Value");
+          case "String" -> entry.getString("Value");
+          case "Vec3" -> {
+            ListTag vecList = entry.getList("Value", Tag.TAG_DOUBLE);
+            yield new Vec3(vecList.getDouble(0), vecList.getDouble(1), vecList.getDouble(2));
+          }
+          case "File" -> new File(entry.getString("Value"));
+          case "JsonObject" -> com.google.gson.JsonParser.parseString(entry.getString("Value")).getAsJsonObject();
+          case "JsonArray" -> com.google.gson.JsonParser.parseString(entry.getString("Value")).getAsJsonArray();
+          default -> entry.getString("Value");
+        };
+      
+        ${var.getName()}.add(value);
       }
     write: |
-      {
-        ListTag ${var.getName()}_list = new ListTag();
-        for(String s : ${var.getName()}.stream().map(String::valueOf).toList()) {
-          ${var.getName()}_list.add(StringTag.valueOf(s));
+      ListTag ${var.getName()}_list = new ListTag();
+      for(int i = 0; i < ${var.getName()}.size(); i++) {
+        CompoundTag entry = new CompoundTag();
+        entry.putString("Type", ${var.getName()}.get(i).getClass().getSimpleName());
+      
+        switch (${var.getName()}.get(i)) {
+          case BlockState state -> entry.put("Value", NbtUtils.writeBlockState(state));
+          case Direction direction -> entry.putInt("Value", direction.get3DDataValue());
+          case ItemStack itemstack -> entry.put("Value", itemstack.saveOptional(lookupProvider));
+          case Boolean bool -> entry.putBoolean("Value", bool);
+          case Double doub -> entry.putDouble("Value", doub);
+          case String str -> entry.putString("Value", str);
+          case Vec3 vec -> {
+            ListTag vecList = new ListTag();
+            vecList.add(DoubleTag.valueOf(vec.x));
+            vecList.add(DoubleTag.valueOf(vec.y));
+            vecList.add(DoubleTag.valueOf(vec.z));
+            entry.put("Value", vecList);
+          }
+          case File file -> entry.putString("Value", file.getPath());
+          case com.google.gson.JsonObject jsObj -> entry.putString("Value", jsObj.toString());
+          case com.google.gson.JsonArray jsArr -> entry.putString("Value", jsArr.toString());
+          default -> entry.putString("Value", String.valueOf(${var.getName()}.get(i)));
         }
-        nbt.put("${var.getName()}", ${var.getName()}_list);
+      
+        ${var.getName()}_list.add(entry);
       }
+      
+      nbt.put("${var.getName()}", ${var.getName()}_list);
     get: ${JavaModName}Variables.WorldVariables.get(world).${name}
     set: |
       ${JavaModName}Variables.WorldVariables.get(world).${name}.addAll(${opt.removeParentheses(value)});
@@ -32,20 +74,62 @@ scopes:
   global_map:
     init: public ArrayList<Object> ${var.getName()} = ${var.getValue()};
     read: |
-      {
-        ListTag ${var.getName()}_list = nbt.getList("${var.getName()}", Tag.TAG_STRING);
-        for(int i = 0; i < ${var.getName()}_list.size(); i++) {
-          ${var.getName()}.add(${var.getName()}_list.getString(i));
-        }
+      ${var.getName()}.clear();
+      
+      ListTag ${var.getName()}_list = nbt.getList("${var.getName()}", Tag.TAG_COMPOUND);
+      for (Tag tag : ${var.getName()}_list) {
+        CompoundTag entry = (CompoundTag) tag;
+        String type = entry.getString("Type");
+      
+        Object value = switch(type) {
+          case "BlockState" -> NbtUtils.readBlockState(lookupProvider.lookupOrThrow(Registries.BLOCK), entry.getCompound("Value"));
+          case "Direction" -> Direction.from3DDataValue(entry.getInt("Value"));
+          case "ItemStack" -> ItemStack.parseOptional(lookupProvider, entry.getCompound("Value"));
+          case "Boolean" -> entry.getBoolean("Value");
+          case "Double" -> entry.getDouble("Value");
+          case "String" -> entry.getString("Value");
+          case "Vec3" -> {
+            ListTag vecList = entry.getList("Value", Tag.TAG_DOUBLE);
+            yield new Vec3(vecList.getDouble(0), vecList.getDouble(1), vecList.getDouble(2));
+          }
+          case "File" -> new File(entry.getString("Value"));
+          case "JsonObject" -> com.google.gson.JsonParser.parseString(entry.getString("Value")).getAsJsonObject();
+          case "JsonArray" -> com.google.gson.JsonParser.parseString(entry.getString("Value")).getAsJsonArray();
+          default -> entry.getString("Value");
+        };
+      
+        ${var.getName()}.add(value);
       }
     write: |
-      {
-        ListTag ${var.getName()}_list = new ListTag();
-        for(String s : ${var.getName()}.stream().map(String::valueOf).toList()) {
-          ${var.getName()}_list.add(StringTag.valueOf(s));
+      ListTag ${var.getName()}_list = new ListTag();
+      for(int i = 0; i < ${var.getName()}.size(); i++) {
+        CompoundTag entry = new CompoundTag();
+        entry.putString("Type", ${var.getName()}.get(i).getClass().getSimpleName());
+      
+        switch (${var.getName()}.get(i)) {
+          case BlockState state -> entry.put("Value", NbtUtils.writeBlockState(state));
+          case Direction direction -> entry.putInt("Value", direction.get3DDataValue());
+          case ItemStack itemstack -> entry.put("Value", itemstack.saveOptional(lookupProvider));
+          case Boolean bool -> entry.putBoolean("Value", bool);
+          case Double doub -> entry.putDouble("Value", doub);
+          case String str -> entry.putString("Value", str);
+          case Vec3 vec -> {
+            ListTag vecList = new ListTag();
+            vecList.add(DoubleTag.valueOf(vec.x));
+            vecList.add(DoubleTag.valueOf(vec.y));
+            vecList.add(DoubleTag.valueOf(vec.z));
+            entry.put("Value", vecList);
+          }
+          case File file -> entry.putString("Value", file.getPath());
+          case com.google.gson.JsonObject jsObj -> entry.putString("Value", jsObj.toString());
+          case com.google.gson.JsonArray jsArr -> entry.putString("Value", jsArr.toString());
+          default -> entry.putString("Value", String.valueOf(${var.getName()}.get(i)));
         }
-        nbt.put("${var.getName()}", ${var.getName()}_list);
+      
+        ${var.getName()}_list.add(entry);
       }
+      
+      nbt.put("${var.getName()}", ${var.getName()}_list);
     get: ${JavaModName}Variables.MapVariables.get(world).${name}
     set: |
       ${JavaModName}Variables.MapVariables.get(world).${name}.addAll(${opt.removeParentheses(value)});

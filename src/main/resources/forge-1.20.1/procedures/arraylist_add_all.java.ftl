@@ -1,3 +1,1 @@
-{
-    ${input$var}.addAll(${input$value});
-}
+${input$var}.addAll(${input$value});

@@ -1,3 +1,1 @@
-(
-    ${input$list}.get(${opt.toInt(input$index)}) instanceof ArrayList<Object>
-)
+${input$list}.get(${opt.toInt(input$index)}) instanceof ArrayList<Object>

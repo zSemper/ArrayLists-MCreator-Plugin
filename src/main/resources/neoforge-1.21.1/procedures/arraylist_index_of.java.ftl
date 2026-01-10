@@ -1,3 +1,1 @@
-(
-    ${input$var}.indexOf(${input$value})
-)
+${input$var}.indexOf(${input$value})

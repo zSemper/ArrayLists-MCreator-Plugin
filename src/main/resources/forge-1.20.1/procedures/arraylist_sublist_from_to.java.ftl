@@ -1,3 +1,1 @@
-(
-    new ArrayList<>(${input$var}.subList(${input$fromIndex}, ${input$toIndex}))
-)
+new ArrayList<>(${input$var}.subList(${input$fromIndex}, ${input$toIndex}))

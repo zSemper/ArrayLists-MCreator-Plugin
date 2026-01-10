@@ -1,3 +1,1 @@
-{
-    ${input$var}.clear();
-}
+${input$var}.clear();

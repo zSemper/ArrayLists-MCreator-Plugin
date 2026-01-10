@@ -8,7 +8,14 @@
       "type": "input_value",
       "name": "var",
       "check": "ArrayList"
+    },
+    {
+      "type": "field_input",
+      "name": "output_type"
     }
+  ],
+  "extensions": [
+    "get_output_type"
   ],
   "inputsInline": true,
   "previousStatement": null,
@@ -20,6 +27,9 @@
     "inputs": [
       "value",
       "var"
+    ],
+    "fields": [
+      "output_type"
     ]
   }
 }

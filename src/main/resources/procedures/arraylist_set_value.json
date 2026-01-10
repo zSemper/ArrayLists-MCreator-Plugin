@@ -13,7 +13,14 @@
     {
       "type": "input_value",
       "name": "value"
+    },
+    {
+      "type": "field_input",
+      "name": "output_type"
     }
+  ],
+  "extensions": [
+    "get_output_type"
   ],
   "inputsInline": true,
   "previousStatement": null,
@@ -29,6 +36,9 @@
       "index",
       "value",
       "var"
+    ],
+    "fields": [
+      "output_type"
     ]
   }
 }

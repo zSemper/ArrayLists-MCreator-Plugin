@@ -1,3 +1,1 @@
-(
-    ${input$list}.get(${opt.toInt(input$index)}) instanceof com.google.gson.JsonObject
-)
+${input$list}.get(${opt.toInt(input$index)}) instanceof com.google.gson.JsonObject

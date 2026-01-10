@@ -1,3 +1,1 @@
-(
-    ${input$list}.get(${opt.toInt(input$index)}) instanceof File
-)
+${input$list}.get(${opt.toInt(input$index)}) instanceof File
