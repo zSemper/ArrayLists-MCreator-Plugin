@@ -1,3 +1,3 @@
 /*@ItemStack*/
 
-${input$entry} instanceof ItemStack _stack${cbi} ? _stack${cbi} : ItemStack.EMPTY
+(${input$entry} instanceof ItemStack _stack${cbi} ? _stack${cbi} : ItemStack.EMPTY)

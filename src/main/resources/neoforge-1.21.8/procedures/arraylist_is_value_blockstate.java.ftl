@@ -1,1 +1,1 @@
-${input$list}.get(${opt.toInt(input$index)}) instanceof BlockState
+(${input$list}.get(${opt.toInt(input$index)}) instanceof BlockState)

@@ -1,1 +1,1 @@
-${input$entry} instanceof com.google.gson.JsonArray _jsAr${cbi} ? _jsAr${cbi} : new com.google.gson.JsonArray()
+(${input$entry} instanceof com.google.gson.JsonArray _jsAr${cbi} ? _jsAr${cbi} : new com.google.gson.JsonArray())

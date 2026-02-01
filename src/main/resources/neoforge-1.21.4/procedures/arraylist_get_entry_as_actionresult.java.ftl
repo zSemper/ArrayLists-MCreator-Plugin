@@ -1,1 +1,1 @@
-${input$entry} instanceof InteractionResult _action${cbi} ? _action${cbi} : InteractionResult.FAIL
+(${input$entry} instanceof InteractionResult _action${cbi} ? _action${cbi} : InteractionResult.FAIL)

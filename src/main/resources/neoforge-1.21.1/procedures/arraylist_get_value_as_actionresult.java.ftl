@@ -1,1 +1,1 @@
-${input$var}.get(${opt.toInt(input$index)}) instanceof InteractionResult _action${cbi} ? _action${cbi} : InteractionResult.FAIL
+(${input$var}.get(${opt.toInt(input$index)}) instanceof InteractionResult _action${cbi} ? _action${cbi} : InteractionResult.FAIL)

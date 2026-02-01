@@ -1,9 +1,19 @@
 <#include "mcitems.ftl">
 
 <#if field$output_type == "MCItem">
-    ${input$var}.add(${mappedMCItemToItemStackCode(input$value)});
+    <#assign method = "${input$var}.add(${mappedMCItemToItemStackCode(input$value)});">
 <#elseif field$output_type == "MCItemBlock">
-    ${input$var}.add(${mappedBlockToBlockStateCode(input$value)});
+    <#assign method = "${input$var}.add(${mappedBlockToBlockStateCode(input$value)});">
 <#else>
-    ${input$var}.add(${input$value});
+    <#assign method = "${input$var}.add(${input$value});">
+</#if>
+
+<#if input$var?contains("${JavaModName}Variables.WorldVariables")>
+    ${method}
+    ${JavaModName}Variables.WorldVariables.get(world).markSyncDirty();
+<#elseif input$var?contains("${JavaModName}Variables.MapVariables")>
+    ${method}
+    ${JavaModName}Variables.MapVariables.get(world).markSyncDirty();
+<#else>
+    ${method}
 </#if>

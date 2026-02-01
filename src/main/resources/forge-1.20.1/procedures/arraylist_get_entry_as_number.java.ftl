@@ -1,1 +1,1 @@
-${input$entry} instanceof Double _doub${cbi} ? _doub${cbi} : 0.0D
+(${input$entry} instanceof Double _doub${cbi} ? _doub${cbi} : 0.0D)

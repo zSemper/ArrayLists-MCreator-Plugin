@@ -1,1 +1,1 @@
-${input$list}.get(${opt.toInt(input$index)}) instanceof Vec3
+(${input$list}.get(${opt.toInt(input$index)}) instanceof Vec3)

@@ -1,1 +1,1 @@
-${input$list}.get(${opt.toInt(input$index)}) instanceof Entity
+(${input$list}.get(${opt.toInt(input$index)}) instanceof Entity)

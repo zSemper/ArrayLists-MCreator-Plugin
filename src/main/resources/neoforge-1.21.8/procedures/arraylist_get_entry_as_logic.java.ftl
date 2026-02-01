@@ -1,1 +1,1 @@
-${input$entry} instanceof Boolean _bool${cbi} ? _bool${cbi} : false
+(${input$entry} instanceof Boolean _bool${cbi} ? _bool${cbi} : false)
