@@ -1,0 +1,3 @@
+(
+    ${input$entry} instanceof Boolean _bool${cbi} ? _bool${cbi} : false
+)

@@ -1,0 +1,3 @@
+(
+    ${input$var}.get(${opt.toInt(input$index)}) instanceof ${field$object} _obj${cbi} ? _obj${cbi} : ${field$default}
+)

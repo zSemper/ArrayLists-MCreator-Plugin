@@ -1,0 +1,3 @@
+(
+    ${input$list}.get(${opt.toInt(input$index)}) instanceof ${field$object}
+)

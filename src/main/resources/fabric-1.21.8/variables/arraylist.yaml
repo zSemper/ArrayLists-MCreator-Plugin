@@ -1,0 +1,56 @@
+defaultvalue: new ArrayList<>()
+scopes:
+  local:
+    init: ArrayList<Object> ${var.getName()} = ${var.getType().getDefaultValue(generator.getWorkspace())};
+    get: ${name}
+    set: ${name}.addAll(${opt.removeParentheses(value)});
+  global_session:
+    init: public static ArrayList<Object> ${var.getName()} = ${var.getValue()};
+    get: ${JavaModName}Variables.${name}
+    set: ${JavaModName}Variables.${name}.addAll(${opt.removeParentheses(value)});
+  global_world:
+    init: public ArrayList<Object> ${var.getName()} = ${var.getValue()};
+    read: |
+      {
+        ${var.getName()}.clear();
+        Optional<ListTag> ${var.getName()}_list = nbt.getList("${var.getName()}");
+        if (${var.getName()}_list.isPresent()) {
+          for (int i = 0; i < ${var.getName()}_list.get().size(); i++) {
+            if (${var.getName()}_list.get().getString(i).isPresent()) ${var.getName()}.add(${var.getName()}_list.get().getString(i).get());
+          }
+        }
+      }
+    write: |
+      {
+        ListTag ${var.getName()}_list = new ListTag();
+        for(String s : ${var.getName()}.stream().map(String::valueOf).toList()) {
+          ${var.getName()}_list.add(StringTag.valueOf(s));
+        }
+        nbt.put("${var.getName()}", ${var.getName()}_list);
+      }
+    get: ${JavaModName}Variables.WorldVariables.get(world).${name}
+    set: |
+      ${JavaModName}Variables.WorldVariables.get(world).${name}.addAll(${opt.removeParentheses(value)});
+      ${JavaModName}Variables.WorldVariables.get(world).syncData(world);
+  global_map:
+    init: public ArrayList<Object> ${var.getName()} = ${var.getValue()};
+    read: |
+      {
+        ${var.getName()}.clear();
+        Optional<ListTag> ${var.getName()}_list = nbt.getList("${var.getName()}");
+        if (${var.getName()}_list.isPresent()) {
+          for (int i = 0; i < ${var.getName()}_list.get().size(); i++) {
+            if (${var.getName()}_list.get().getString(i).isPresent()) ${var.getName()}.add(${var.getName()}_list.get().getString(i).get());
+          }
+        }
+      }
+    write: |
+      {
+        ListTag ${var.getName()}_list = new ListTag();
+        ${var.getName()}.stream().map(String::valueOf).toList().stream().map(StringTag::valueOf).forEach(${var.getName()}_list::add);
+        nbt.put("${var.getName()}", ${var.getName()}_list);
+      }
+    get: ${JavaModName}Variables.MapVariables.get(world).${name}
+    set: |
+      ${JavaModName}Variables.MapVariables.get(world).${name}.addAll(${opt.removeParentheses(value)});
+      ${JavaModName}Variables.MapVariables.get(world).syncData(world);

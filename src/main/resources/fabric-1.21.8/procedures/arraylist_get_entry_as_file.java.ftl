@@ -1,0 +1,3 @@
+(
+    ${input$entry} instanceof File _file${cbi} ? _file${cbi} : new File("")
+)
