@@ -67,24 +67,33 @@ public final class NbtArrayLists {
             CompoundTag entry = new CompoundTag();
             entry.putString("Type", list.get(i).getClass().getSimpleName());
 
-            switch (list.get(i)) {
-                case BlockState blockState -> entry.put("Value", NbtUtils.writeBlockState(blockState));
-                case Direction direction -> entry.putInt("Value", direction.get3DDataValue());
-                case ItemStack itemStack -> entry.put("Value", itemStack.save(new CompoundTag()));
-                case Boolean bool -> entry.putBoolean("Value", bool);
-                case Double doub -> entry.putDouble("Value", doub);
-                case String str -> entry.putString("Value", str);
-                case Vec3 vec -> {
-                    ListTag vec3List = new ListTag();
-                    vec3List.add(DoubleTag.valueOf(vec.x));
-                    vec3List.add(DoubleTag.valueOf(vec.y));
-                    vec3List.add(DoubleTag.valueOf(vec.z));
-                    entry.put("Value", vec3List);
-                }
-                case File file -> entry.putString("Value", file.getPath());
-                case JsonObject jsObj -> entry.putString("Value", jsObj.toString());
-                case JsonArray jsArr -> entry.putString("Value", jsArr.toString());
-                default -> entry.putString("Value", String.valueOf(list.get(i)));
+            Object obj = list.get(i);
+            if (obj instanceof BlockState blockState) {
+                entry.put("Value", NbtUtils.writeBlockState(blockState)9);
+            } else if (obj instanceof Direction direction) {
+                entry.putInt("Value", direction.get3DDataValue());
+            } else if (obj instanceof ItemStack itemStack) {
+                entry.put("Value", itemStack.save(new CompoundTag()));
+            } else if (obj instanceof Boolean bool) {
+                entry.putBoolean("Value", bool);
+            } else if (obj instanceof Double doub) {
+                entry.putDouble("Value", doub);
+            } else if (obj instanceof String str) {
+                entry.putString("Value", str);
+            } else if (obj instanceof Vec3 vec) {
+                ListTag vec3List = new ListTag();
+                vec3List.add(DoubleTag.valueOf(vec.x));
+                vec3List.add(DoubleTag.valueOf(vec.y));
+                vec3List.add(DoubleTag.valueOf(vec.z));
+                entry.put("Value", vec3List);
+            } else if (obj instanceof File file) {
+                entry.putString("Value", file.getPath());
+            } else if (obj instanceof JsonObject jsObj) {
+                entry.putString("Value", jsObj.toString());
+            } else if (obj instanceof JsonArray jsArr) {
+                entry.putString("Value", jsArr.toString());
+            } else {
+                entry.putString("Value", String.valueOf(list.get(i)));
             }
 
             listTag.add(entry);
